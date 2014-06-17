@@ -55,7 +55,7 @@
         _bind();
 
         if (typeof options.load === "function") {
-          options.load();
+          options.load.call($element);
         }
       }, function() {
         console.log("Failed to retrieve template.html");
