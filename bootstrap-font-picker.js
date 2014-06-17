@@ -19,7 +19,7 @@
       currentFont = "",
       customFontURL = "";
 
-    options = $.extend({}, {"font": "Arial", "font-url": ""}, options);
+    options = $.extend({}, {"font": "Arial", "font-url": "", "load": null}, options);
 
     /*
      *  Private Methods
@@ -53,6 +53,10 @@
 
         _loadFont();
         _bind();
+
+        if (typeof options.load === "function") {
+          options.load();
+        }
       }, function() {
         console.log("Failed to retrieve template.html");
       });
