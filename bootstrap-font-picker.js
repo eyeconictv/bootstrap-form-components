@@ -188,7 +188,12 @@
      *  Public Methods
      */
     function getFont() {
-      return $family.val();
+      if (currentFont === CUSTOM_FONT_TEXT) {
+        return _getCustomFontName();
+      }
+      else {
+        return $family.val();
+      }
     }
 
     function getFontStyle() {
