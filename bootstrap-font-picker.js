@@ -121,9 +121,10 @@
 
       // Custom font URL is saved.
       $element.find(".save-custom-font").on("click", function() {
-        var fontFamily = _getCustomFontName();
+        var fontFamily = "";
 
         customFontURL = $fontURL.val();
+        fontFamily = _getCustomFontName();
 
         if (RiseVision.Common.Validation.isValidURL($fontURL.get(0))) {
           utils.loadCustomFont(fontFamily, customFontURL, options.contentDocument);
