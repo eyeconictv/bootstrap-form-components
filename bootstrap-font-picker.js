@@ -70,25 +70,23 @@
 
       currentFont = $family.val();
 
-      if (currentFont !== null) {
-        if (currentFont === CUSTOM_FONT_TEXT) {
-          var fontFamily = _getCustomFontName();
-
-          utils.loadCustomFont(fontFamily, customFontURL, options.contentDocument);
-        }
-        else {
-          // Check if the font exists in the dropdown.
-          $selectBox.find(".bfh-selectbox-options a").each(function(index) {
-            if ($(this).text() === currentFont) {
-              found = true;
-              return false;
-            }
-          });
-
-          // It's a Google font.
-          if (!found) {
-            addGoogleFont(currentFont, true);
+      // Custom font
+      if (customFontURL !== "") {
+        utils.loadCustomFont(currentFont, customFontURL, options.contentDocument);
+        currentFont = CUSTOM_FONT_TEXT;
+      }
+      else if (currentFont !== null) {
+        // Standard font
+        $selectBox.find(".bfh-selectbox-options a").each(function(index) {
+          if ($(this).text() === currentFont) {
+            found = true;
+            return false;
           }
+        });
+
+        // Google font
+        if (!found) {
+          addGoogleFont(currentFont, true);
         }
       }
     }
@@ -188,7 +186,7 @@
      *  Public Methods
      */
     function getFont() {
-      if (currentFont === CUSTOM_FONT_TEXT) {
+      if (customFontURL !== "") {
         return _getCustomFontName();
       }
       else {
