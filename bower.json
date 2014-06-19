@@ -1,0 +1,23 @@
+{
+  "name": "bootstrap-font-picker",
+  "version": "0.0.1",
+  "homepage": "http://github.com/Rise-Vision/bootstrap-font-picker",
+  "authors": [
+    "Rise Vision"
+  ],
+  "description": "Bootstrap Font Picker jQuery Plugin",
+  "license": "GPLv3",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components",
+    "test",
+    "tests",
+    "gulpfile.js",
+    "templates"
+  ],
+  "devDependencies" : {
+    "jQuery": "1.11.0"
+  }
+}

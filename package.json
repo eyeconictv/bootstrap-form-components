@@ -1,0 +1,29 @@
+{
+  "name": "bootstrap-font-picker",
+  "version": "0.0.1",
+  "description": "Bootstrap Font Picker jQuery Plugin",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Rise-Vision/bootstrap-font-picker.git"
+  },
+  "author": "Rise Vision",
+  "license": "GPLv3",
+  "bugs": {
+    "url": "https://github.com/Rise-Vision/bootstrap-font-picker/issues"
+  },
+  "homepage": "https://github.com/Rise-Vision/bootstrap-font-picker",
+  "devDependencies": {
+    "gulp": "~3.8.1",
+    "gulp-concat": "^2.2.0",
+    "gulp-connect": "~2.0.5",
+    "gulp-html2string": "git://github.com/Rise-Vision/gulp-html2string",
+    "gulp-rename": "^1.2.0",
+    "gulp-util": "^2.2.17"
+  }
+}
