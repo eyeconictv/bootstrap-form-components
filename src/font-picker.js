@@ -20,7 +20,7 @@
       currentFont = "",
       customFontURL = "";
 
-    options = $.extend({}, {"font": "Arial", "font-url": "", "load": null}, options);
+    options = $.extend({}, {"font": "Arial", "font-url": "", "load": null, "contentDocument": null}, options);
 
     /*
      *  Private Methods
@@ -279,4 +279,4 @@
       }
     });
   };
-})(jQuery, window, document, CONFIG, TEMPLATES);
+})(jQuery, window, document, TEMPLATES, CONFIG);

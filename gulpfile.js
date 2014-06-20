@@ -9,9 +9,8 @@
   var path = require('path');
   var rename = require("gulp-rename");
   var concat = require("gulp-concat");
+  var bump = require('gulp-bump');
   var httpServer;
-
-
 
   gulp.task('config', function() {
     var env = process.env.NODE_ENV || 'dev';
@@ -22,7 +21,15 @@
       .pipe(gulp.dest('./src/config'));
   });
 
-  gulp.task('e2e:server', function() {
+  // Defined method of updating:
+  // Semantic
+  gulp.task('bump', function(){
+    return gulp.src(['./package.json', './bower.json'])
+    .pipe(bump({type:'patch'}))
+    .pipe(gulp.dest('./'));
+  });
+
+  gulp.task('e2e:server', ['build'], function() {
     httpServer = connect.server({
       root: './',
       port: 8099,

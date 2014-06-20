@@ -1,4 +1,12 @@
 <html>
+
+<link rel="stylesheet" href="//s3.amazonaws.com/rise-common-test/styles/glyphicons/glyphicons.min.css">
+<link rel="stylesheet" href="//s3.amazonaws.com/rise-common-test/styles/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="//s3.amazonaws.com/rise-common-test/styles/spectrum/spectrum.css">
+<link rel="stylesheet" href="//s3.amazonaws.com/rise-common-test/styles/bootstrap-form-helper/bootstrap-formhelpers.min.css">
+<link rel="stylesheet" href="//s3.amazonaws.com/rise-common-test/styles/bootstrap-font-picker/bootstrap-fontpicker.min.css">
+<link rel="stylesheet" href="//s3.amazonaws.com/rise-common-test/styles/rise/css/rise.min.css">
+
 <head><title>Test Page</title></head>
 
 <body>
@@ -6,11 +14,13 @@
 <div id="font-picker">
 </div>
 
-<script type="text/javascript" src="../../components/jQuery/dist/jquery.js"></script>
+<script type="text/javascript" src="../../components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../../components/bootstrap/dist/js/bootstrap.js"></script>
+<script type="text/javascript" src="../../components/bootstrap-formhelpers/dist/js/bootstrap-formhelpers.min.js"></script>
 <script type="text/javascript" src="../../dist/bootstrap-font-picker.js"></script>
 
 <script type="text/javascript">
-  $('#font-picker').fontPicker();
+  $('#font-picker').fontPicker({font: "Times New Roman"});
 </script>
 
 </body>

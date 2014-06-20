@@ -8,13 +8,13 @@ if(typeof RiseVision === 'undefined') {
 			var sheet = null;
 			var rule = "font-family: " + family + "; " + "src: url('" + url + "');";
 
-			if (contentDocument === null) {
+			if (contentDocument === null || typeof contentDocument === 'undefined') {
 				contentDocument = document;
 			}
 
 			sheet = contentDocument.styleSheets[0];
 
-			if (sheet !== null) {
+			if (sheet !== null && typeof sheet !== 'undefined') {
 				sheet.addRule("@font-face", rule);
 			}
 		}

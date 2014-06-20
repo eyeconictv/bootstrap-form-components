@@ -26,6 +26,7 @@
     "gulp-html2string": "git://github.com/Rise-Vision/gulp-html2string",
     "gulp-rename": "~1.2.0",
     "gulp-util": "~2.2.17",
+    "gulp-bump": "~0.1.8",
     "phantomjs": "^1.9.7-9"
   }
 }
