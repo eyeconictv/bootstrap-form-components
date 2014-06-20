@@ -7,10 +7,9 @@ casper.test.begin('font picker: font list', 5, function (test) {
     });
 
     casper.then(function () {
-      //TODO
         this.click('.bfh-selectbox-option');
         test.assertVisible('.bfh-selectbox-options');
-        test.assertElementCount('.bfh-selectbox-options ul li', 48);
+        test.assertElementCount('.bfh-selectbox-options ul li', 100);
     });
 
     casper.run(function() {
