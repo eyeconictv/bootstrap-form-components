@@ -3,7 +3,7 @@
  *  (reproduced in the LICENSE file).
  */
 
- ;(function ($, window, document, TEMPLATES, undefined) {
+ ;(function ($, window, document, TEMPLATES, CONFIG, undefined) {
   "use strict";
 
   var _pluginName = "fontPicker";
@@ -279,4 +279,4 @@
       }
     });
   };
-})(jQuery, window, document, TEMPLATES);
+})(jQuery, window, document, CONFIG, TEMPLATES);

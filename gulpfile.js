@@ -11,6 +11,17 @@
   var concat = require("gulp-concat");
   var httpServer;
 
+
+
+  gulp.task('config', function() {
+    var env = process.env.NODE_ENV || 'dev';
+    gutil.log('Environment is', env);
+
+    return gulp.src(['./src/config/' + env + '.js'])
+      .pipe(rename('config.js'))
+      .pipe(gulp.dest('./src/config'));
+  });
+
   gulp.task('e2e:server', function() {
     httpServer = connect.server({
       root: './',
@@ -43,8 +54,8 @@
       .pipe(gulp.dest('templates/'));
   });
 
-  gulp.task('concat', function () {
-    gulp.src(['./templates/**/*.js', './src/lib/*.js', './src/*.js'])
+  gulp.task('concat', ['config'], function () {
+    gulp.src(['./src/config/config.js', './templates/**/*.js', './src/lib/*.js', './src/*.js'])
     .pipe(concat('bootstrap-font-picker.js'))
     .pipe(gulp.dest('./dist/'));
   });
