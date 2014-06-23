@@ -19,7 +19,8 @@
   ],
   "dependencies": {
     "jquery": "1.11.0",
-    "bootstrap": "3.1.1",
-    "bootstrap-formhelpers": "git://github.com/Rise-Vision/BootstrapFormHelpers#2.0.0-rv"
+    "bootstrap": "~3.1.1",
+    "bootstrap-formhelpers": "git://github.com/Rise-Vision/BootstrapFormHelpers#2.0.0-rv",
+    "angular": "~1.2.18"
   }
 }

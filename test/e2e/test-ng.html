@@ -1,0 +1,47 @@
+<html>
+
+<!--link rel="stylesheet" href="//s3.amazonaws.com/rise-common-test/styles/glyphicons/glyphicons.min.css" -/-->
+<link rel="stylesheet" href="../../components/bootstrap/dist/css/bootstrap.css">
+<!-- <link rel="stylesheet" href="//s3.amazonaws.com/rise-common-test/styles/spectrum/spectrum.css"> -->
+<link rel="stylesheet" href="../../components/bootstrap-formhelpers/dist/css/bootstrap-formhelpers.css">
+<link rel="stylesheet" href="../../css/bootstrap-fontpicker.css" />
+<!-- <link rel="stylesheet" href="//s3.amazonaws.com/rise-common-test/styles/rise/css/rise.min.css"> -->
+
+<head><title>Test Page</title></head>
+
+<body ng-app="testapp" ng-controller="mainController">
+
+<div id="font-picker"
+  font-picker
+  font-picker-prefix="my-settings"
+  font-picker-default-font="Times New Roman">
+</div>
+
+<script type="text/javascript" src="../../components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../../components/bootstrap/dist/js/bootstrap.js"></script>
+<!--script type="text/javascript" src="../../components/bootstrap-formhelpers/dist/js/bootstrap-formhelpers.min.js"></script-->
+<script type="text/javascript" src="../../components/bootstrap-formhelpers/js/lang/en_US/bootstrap-formhelpers-fonts.en_US.js"></script>
+<script type="text/javascript" src="../../components/bootstrap-formhelpers/js/lang/en_US/bootstrap-formhelpers-googlefonts.en_US.js"></script>
+<script type="text/javascript" src="../../components/bootstrap-formhelpers/js/bootstrap-formhelpers-fonts.js"></script>
+<script type="text/javascript" src="../../components/bootstrap-formhelpers/js/bootstrap-formhelpers-googlefonts.js"></script>
+<script type="text/javascript" src="../../components/bootstrap-formhelpers/js/bootstrap-formhelpers-selectbox.js"></script>
+<script type="text/javascript" src="../../components/angular/angular.js"></script>
+<script type="text/javascript" src="../../src/config/config.js"></script>
+<script type="text/javascript" src="../../templates/template.js"></script>
+<script type="text/javascript" src="../../src/lib/font-loader.js"></script>
+<script type="text/javascript" src="../../src/font-picker.js"></script>
+<script type="text/javascript" src="../../src/angular/font-picker-ng.js"></script>
+<script type="text/javascript">
+angular.module('testapp', ['risevision.widget.common.fontpicker'])
+  .controller('mainController', ['$scope', function ($scope) {
+    $scope.additionalParams = {
+    };
+
+    $scope.getAdditionalParams = function (val, defaultVal) {
+      //always return defaultVal for now
+      return defaultVal;
+    }
+  }]);
+</script>
+</body>
+</html>
