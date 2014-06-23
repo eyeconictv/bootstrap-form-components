@@ -27,6 +27,9 @@
     "gulp-rename": "~1.2.0",
     "gulp-util": "~2.2.17",
     "gulp-bump": "~0.1.8",
+    "gulp-protractor": "~0.0.8",
+    "chai": "~1.9.1",
+    "chai-as-promised": "~4.1.1",
     "phantomjs": "^1.9.7-9"
   }
 }

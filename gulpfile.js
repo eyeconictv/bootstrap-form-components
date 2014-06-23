@@ -61,6 +61,18 @@
       .pipe(gulp.dest('templates/'));
   });
 
+  gulp.task("e2e:test-ng", ["webdriver_update", "e2e:server"], function () {
+    return gulp.src(["./test/e2e/test-ng.js"])
+      .pipe(protractor({
+          configFile: "./test/protractor.conf.js",
+          args: ["--baseUrl", "http://127.0.0.1:" + e2ePort + "/test/e2e/test-ng.html"]
+      }))
+      .on("error", function (e) { console.log(e); throw e; })
+      .on("end", function () {
+        connect.serverClose();
+      });
+  });
+
   gulp.task('concat', ['config'], function () {
     gulp.src(['./src/config/config.js', './templates/**/*.js', './src/lib/*.js', './src/*.js'])
     .pipe(concat('bootstrap-font-picker.js'))
