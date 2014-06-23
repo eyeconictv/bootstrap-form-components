@@ -37,11 +37,7 @@
       $customFontError = $element.find(".custom-font-error");
 
       // Initialize font list.
-      $selectBox.bfhfonts({
-        "family" : options.font,
-        "showCustom" : true,
-        "showMore" : true
-      });
+      $selectBox.bfhfonts(options);
 
       // Initialize Google font list.
       $element.find(".bfh-googlefontlist").bfhgooglefontlist();
