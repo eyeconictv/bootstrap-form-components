@@ -1,0 +1,37 @@
+<html>
+
+<!--link rel="stylesheet" href="//s3.amazonaws.com/rise-common-test/styles/glyphicons/glyphicons.min.css" -/-->
+<link rel="stylesheet" href="../../components/bootstrap/dist/css/bootstrap.css">
+<!-- <link rel="stylesheet" href="//s3.amazonaws.com/rise-common-test/styles/spectrum/spectrum.css"> -->
+<link rel="stylesheet" href="../../components/rv-bootstrap-formhelpers/dist/css/rv-bootstrap-formhelpers.css">
+<link rel="stylesheet" href="../../css/bootstrap-fontpicker.css" />
+<!-- <link rel="stylesheet" href="//s3.amazonaws.com/rise-common-test/styles/rise/css/rise.min.css"> -->
+
+<head><title>Test Page</title></head>
+
+<body>
+
+<div id="font-picker">
+</div>
+
+<script type="text/javascript" src="../../components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../../components/bootstrap/dist/js/bootstrap.js"></script>
+<script type="text/javascript" src="../../components/rv-bootstrap-formhelpers/js/lang/en_US/bootstrap-formhelpers-fonts.en_US.js"></script>
+<script type="text/javascript" src="../../components/rv-bootstrap-formhelpers/js/lang/en_US/bootstrap-formhelpers-googlefonts.en_US.js"></script>
+<script type="text/javascript" src="../../components/rv-bootstrap-formhelpers/js/bootstrap-formhelpers-fonts.js"></script>
+<script type="text/javascript" src="../../components/rv-bootstrap-formhelpers/js/bootstrap-formhelpers-googlefonts.js"></script>
+<script type="text/javascript" src="../../components/rv-bootstrap-formhelpers/js/bootstrap-formhelpers-selectbox.js"></script>
+<script type="text/javascript" src="../../src/config/config.js"></script>
+<script type="text/javascript" src="../../templates/template.js"></script>
+<script type="text/javascript" src="../../src/lib/font-loader.js"></script>
+<script type="text/javascript" src="../../src/font-picker.js"></script>
+
+<script type="text/javascript">
+  $('#font-picker').fontPicker({
+    font: "Times New Roman", blank: false,
+    showCustom: true, showMore: true
+  });
+</script>
+
+</body>
+</html>

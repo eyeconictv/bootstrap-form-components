@@ -2,7 +2,8 @@
  *  Use of this software is governed by the GPLv3 license
  *  (reproduced in the LICENSE file).
  */
- ;(function ($, window, document, undefined) {
+
+ ;(function ($, window, document, TEMPLATES, CONFIG, undefined) {
   "use strict";
 
   var _pluginName = "fontPicker";
@@ -19,47 +20,38 @@
       currentFont = "",
       customFontURL = "";
 
-    options = $.extend({}, {"font": "Arial", "font-url": "", "load": null}, options);
+    options = $.extend({}, {"font": "Arial", "font-url": "", "load": null, "contentDocument": null}, options);
 
     /*
      *  Private Methods
      */
     function _init() {
-      var TEMPLATE_URL = "http://s3.amazonaws.com/rise-common-test/scripts/bootstrap-font-picker/html/template.html";
 
       // Get the HTML markup from the template.
-      $.get(TEMPLATE_URL).then(function(src) {
-        $element.append(src);
+      $element.append(TEMPLATES['template.html']);
 
-        $selectBox = $element.find(".bfh-selectbox");
-        $family = $element.find(".font-family");
-        $fontURL = $element.find(".font-url");
-        $customFont = $element.find(".custom-font");
-        $customFontError = $element.find(".custom-font-error");
+      $selectBox = $element.find(".bfh-selectbox");
+      $family = $element.find(".font-family");
+      $fontURL = $element.find(".font-url");
+      $customFont = $element.find(".custom-font");
+      $customFontError = $element.find(".custom-font-error");
 
-        // Initialize font list.
-        $selectBox.bfhfonts({
-          "family" : options.font,
-          "showCustom" : true,
-          "showMore" : true
-        });
+      // Initialize font list.
+      $selectBox.bfhfonts(options);
 
-        // Initialize Google font list.
-        $element.find(".bfh-googlefontlist").bfhgooglefontlist();
+      // Initialize Google font list.
+      $element.find(".bfh-googlefontlist").bfhgooglefontlist();
 
-        // Initialize custom font.
-        $element.find(".font-url").val(options["font-url"]);
-        customFontURL = $fontURL.val();
+      // Initialize custom font.
+      $element.find(".font-url").val(options["font-url"]);
+      customFontURL = $fontURL.val();
 
-        _loadFont();
-        _bind();
+      _loadFont();
+      _bind();
 
-        if (typeof options.load === "function") {
-          options.load.call($element);
-        }
-      }, function() {
-        console.log("Failed to retrieve template.html");
-      });
+      if (typeof options.load === "function") {
+        options.load.call($element);
+      }
     }
 
     /*
@@ -283,4 +275,4 @@
       }
     });
   };
-})(jQuery, window, document);
+})(jQuery, window, document, TEMPLATES, CONFIG);
