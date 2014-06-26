@@ -1,6 +1,6 @@
 {
   "name": "rv-bootstrap-font-picker",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "homepage": "http://github.com/Rise-Vision/bootstrap-font-picker",
   "authors": [
     "Rise Vision"
@@ -19,8 +19,8 @@
   ],
   "dependencies": {
     "jquery": "1.11.0",
-    "bootstrap": "~3.1.1",
-    "bootstrap-formhelpers": "git://github.com/Rise-Vision/BootstrapFormHelpers#2.0.0-rv",
+    "bootstrap": "3.1.1",
+    "rv-bootstrap-formhelpers": "git://github.com/Rise-Vision/BootstrapFormHelpers#2.3.2-rv",
     "angular": "~1.2.18"
   }
 }
