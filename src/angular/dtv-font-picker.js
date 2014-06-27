@@ -3,7 +3,9 @@ angular.module('risevision.widget.common.fontpicker', [])
     return {
       restrict: 'AE',
       scope: false,
-      link: function ($scope, elm, attrs) {
+      require: '?ngModel',
+      template: '<div class="the-picker"></div>',
+      link: function ($scope, elm, attrs, ngModel) {
         var stripLast = function (str, strToStrip) {
           var index = str.indexOf(strToStrip);
           if(index >= 0) {
@@ -12,19 +14,27 @@ angular.module('risevision.widget.common.fontpicker', [])
           return str;
         };
 
-        var $selectbox;
-        var $elm = $(elm);
-        var prefix = attrs.prefix || stripLast(attrs.id, '-font');
+        var $selectbox, picker;
+        var $elm = $(elm).find('div.the-picker');
 
-        $elm.fontPicker({
-          'font' : $scope.getAdditionalParam(
-            prefix + '-font', attrs.defaultFont),
+        //initialize only if not yet initialized
+        if(!$elm.data('plugin_fontPicker')) {
+          $elm.fontPicker({
+            font : attrs.defaultFont || 'Verdana',
+            blank: false,
             showCustom: true,
             showMore: true
-        });
+          });
 
-        var picker = $elm.data('plugin_fontPicker');
-
+          picker = $elm.data('plugin_fontPicker');
+        }
+        if(ngModel) {
+          ngModel.$render = function () {
+            if(ngModel.$modelValue) {
+              picker.setFont(ngModel.$modelValue);
+            }
+          };
+        }
 
         // $selectbox = $elm.find('div.bfh-selectbox');
         // $selectbox.bfhselectbox($selectbox.data());
@@ -33,8 +43,10 @@ angular.module('risevision.widget.common.fontpicker', [])
         // i18nLoader.get().then(function () {$elm.i18n();});
 
         $scope.$on('collectAdditionalParams', function () {
-          $log.debug('Collecting params from', prefix, picker);
-          $scope.setAdditionalParam(prefix + '-font', picker.getFont());
+          $log.debug('Collecting params from', attrs.id);
+          if(ngModel) {
+            ngModel.$setViewValue(picker.getFont());
+          }
         });
       }
     };
