@@ -102,8 +102,8 @@
       });
   });
 
-  gulp.task('concat', ['config'], function () {
-    return gulp.src(['./src/config/config.js', './templates/**/*.js', './src/lib/*.js', './src/*.js'])
+  gulp.task('concat-fontpicker', ['config'], function () {
+    return gulp.src(['./src/config/config.js', './templates/template.html.js', './src/lib/font-loader.js', './src/font-picker.js'])
     .pipe(concat('bootstrap-font-picker.js'))
     .pipe(gulp.dest('./dist/js'));
   });
@@ -114,7 +114,7 @@
     .pipe(gulp.dest('./dist/js/angular'));
   });
 
-  gulp.task('build', ['css-min', 'html2js', 'concat', 'concat-angular']);
+  gulp.task('build', ['css-min', 'html2js', 'concat-fontpicker', 'concat-angular']);
 
   gulp.task('test', ['e2e:test']);
 
