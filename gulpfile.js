@@ -15,20 +15,20 @@
   var httpServer;
 
   var sassFiles = [
-      "scss/**/*.scss"
+      "src/scss/**/*.scss"
     ],
 
     cssFiles = [
-      "css/**/*.css"
+      "src/css/**/*.css"
     ];
 
   gulp.task('config', function() {
     var env = process.env.NODE_ENV || 'dev';
     gutil.log('Environment is', env);
 
-    return gulp.src(['./src/config/' + env + '.js'])
+    return gulp.src(['./src/js/config/' + env + '.js'])
       .pipe(rename('config.js'))
-      .pipe(gulp.dest('./src/config'));
+      .pipe(gulp.dest('./src/js/config'));
   });
 
   // Defined method of updating:
@@ -51,7 +51,7 @@
   gulp.task("sass", function () {
     return gulp.src(sassFiles)
       .pipe(sass())
-      .pipe(gulp.dest("css"));
+      .pipe(gulp.dest("src/css"));
   });
 
   gulp.task("css", ["sass"], function () {
@@ -61,7 +61,7 @@
   });
 
   gulp.task("css-min", ["css"], function () {
-    return gulp.src("all.css")
+    return gulp.src("dist/css/all.css")
       .pipe(minifyCSS({keepBreaks:true}))
       .pipe(rename('all.min.js'))
       .pipe(gulp.dest("dist/css"));
@@ -84,10 +84,10 @@
   });
 
   gulp.task('html2js', function () {
-    return gulp.src('html/*.html')
-      .pipe(html2string({ createObj: true, base: path.join(__dirname, 'html'), objName: 'TEMPLATES' }))
+    return gulp.src('src/html/*.html')
+      .pipe(html2string({ createObj: true, base: path.join(__dirname, 'src/html'), objName: 'TEMPLATES' }))
       .pipe(rename({extname: '.js'}))
-      .pipe(gulp.dest('templates/'));
+      .pipe(gulp.dest('src/templates/'));
   });
 
   gulp.task("e2e:test-ng", ["webdriver_update", "e2e:server"], function () {
@@ -103,13 +103,13 @@
   });
 
   gulp.task('concat-fontpicker', ['config'], function () {
-    return gulp.src(['./src/config/config.js', './templates/template.html.js', './src/lib/font-loader.js', './src/font-picker.js'])
+    return gulp.src(['./src/js/config/config.js', './src/templates/font-picker-template.js', './src/js/font-picker/font-loader.js', './src/js/font-picker/font-picker.js'])
     .pipe(concat('bootstrap-font-picker.js'))
     .pipe(gulp.dest('./dist/js'));
   });
 
   gulp.task('concat-angular', ['config'], function () {
-    return gulp.src(['./src/angular/*.js'])
+    return gulp.src(['./src/js/angular/*.js'])
     .pipe(concat('bootstrap-font-picker-angular-directive.js'))
     .pipe(gulp.dest('./dist/js/angular'));
   });

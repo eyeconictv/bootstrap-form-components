@@ -1,6 +1,6 @@
 node_modules
 components
-templates
-css
-src/config/config.js
+src/templates
+src/css
+src/js/config/config.js
 *.log

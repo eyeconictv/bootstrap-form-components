@@ -28,7 +28,7 @@
     function _init() {
 
       // Get the HTML markup from the template.
-      $element.append(TEMPLATES['template.html']);
+      $element.append(TEMPLATES['font-picker-template.html']);
 
       $selectBox = $element.find(".bfh-selectbox");
       $family = $element.find(".font-family");
