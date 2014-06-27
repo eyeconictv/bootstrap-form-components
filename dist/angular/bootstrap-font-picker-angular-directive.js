@@ -1,7 +1,7 @@
 angular.module('risevision.widget.common.fontpicker', [])
   .directive('fontPicker', ['$log', function ($log) {
     return {
-      restrict: 'A',
+      restrict: 'AE',
       scope: false,
       link: function ($scope, elm, attrs) {
         var stripLast = function (str, strToStrip) {
@@ -14,24 +14,27 @@ angular.module('risevision.widget.common.fontpicker', [])
 
         var $selectbox;
         var $elm = $(elm);
-        var prefix = attrs.fontPickerPrefix || stripLast(attrs.id, '-font');
-        var picker = $elm.data('font-picker');
+        var prefix = attrs.prefix || stripLast(attrs.id, '-font');
+
         $elm.fontPicker({
-          'font' : $scope.getAdditionalParams(
-            prefix + '-font', attrs.fontPickerDefaultFont),
+          'font' : $scope.getAdditionalParam(
+            prefix + '-font', attrs.defaultFont),
             showCustom: true,
             showMore: true
         });
 
-        $selectbox = $elm.find('div.bfh-selectbox');
-        $selectbox.bfhselectbox($selectbox.data());
+        var picker = $elm.data('plugin_fontPicker');
+
+
+        // $selectbox = $elm.find('div.bfh-selectbox');
+        // $selectbox.bfhselectbox($selectbox.data());
 
         //load i18n text translations after ensuring i18n has been initialized
         // i18nLoader.get().then(function () {$elm.i18n();});
 
         $scope.$on('collectAdditionalParams', function () {
           $log.debug('Collecting params from', prefix, picker);
-          $scope.setAdditionalParams(prefix + '-font', picker.getFont());
+          $scope.setAdditionalParam(prefix + '-font', picker.getFont());
         });
       }
     };

@@ -74,12 +74,18 @@
   });
 
   gulp.task('concat', ['config'], function () {
-    gulp.src(['./src/config/config.js', './templates/**/*.js', './src/lib/*.js', './src/*.js'])
+    return gulp.src(['./src/config/config.js', './templates/**/*.js', './src/lib/*.js', './src/*.js'])
     .pipe(concat('bootstrap-font-picker.js'))
     .pipe(gulp.dest('./dist/'));
   });
 
-  gulp.task('build', ['html2js', 'concat']);
+  gulp.task('concat-angular', ['config'], function () {
+    return gulp.src(['./src/angular/*.js'])
+    .pipe(concat('bootstrap-font-picker-angular-directive.js'))
+    .pipe(gulp.dest('./dist/angular'));
+  });
+
+  gulp.task('build', ['html2js', 'concat', 'concat-angular']);
 
   gulp.task('test', ['e2e:test']);
 
