@@ -1,7 +1,7 @@
 var CONFIG = {};
 
 if(typeof TEMPLATES === 'undefined') {var TEMPLATES = {};}
-TEMPLATES['template.html'] = "<!-- Font Family -->\n" +
+TEMPLATES['font-picker-template.html'] = "<!-- Font Family -->\n" +
     "<!-- Can't use an HTML select because the items in the drop-down need to be\n" +
     "     styled individually. -->\n" +
     "<div class=\"bfh-selectbox\">\n" +
@@ -156,7 +156,7 @@ if(typeof RiseVision === 'undefined') {
     function _init() {
 
       // Get the HTML markup from the template.
-      $element.append(TEMPLATES['template.html']);
+      $element.append(TEMPLATES['font-picker-template.html']);
 
       $selectBox = $element.find(".bfh-selectbox");
       $family = $element.find(".font-family");
