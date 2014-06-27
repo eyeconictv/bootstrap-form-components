@@ -10,7 +10,17 @@
   var rename = require("gulp-rename");
   var concat = require("gulp-concat");
   var bump = require('gulp-bump');
+  var sass = require('gulp-sass');
+  var minifyCSS = require('gulp-minify-css');
   var httpServer;
+
+  var sassFiles = [
+      "scss/**/*.scss"
+    ],
+
+    cssFiles = [
+      "css/**/*.css"
+    ];
 
   gulp.task('config', function() {
     var env = process.env.NODE_ENV || 'dev';
@@ -36,6 +46,25 @@
       livereload: false
     });
     return httpServer;
+  });
+
+  gulp.task("sass", function () {
+    return gulp.src(sassFiles)
+      .pipe(sass())
+      .pipe(gulp.dest("css"));
+  });
+
+  gulp.task("css", ["sass"], function () {
+    return gulp.src(cssFiles)
+      .pipe(concat("all.css"))
+      .pipe(gulp.dest("dist/css"));
+  });
+
+  gulp.task("css-min", ["css"], function () {
+    return gulp.src("all.css")
+      .pipe(minifyCSS({keepBreaks:true}))
+      .pipe(rename('all.min.js'))
+      .pipe(gulp.dest("dist/css"));
   });
 
   gulp.task('e2e:test', ['build', 'e2e:server'], function () {
@@ -76,16 +105,16 @@
   gulp.task('concat', ['config'], function () {
     return gulp.src(['./src/config/config.js', './templates/**/*.js', './src/lib/*.js', './src/*.js'])
     .pipe(concat('bootstrap-font-picker.js'))
-    .pipe(gulp.dest('./dist/'));
+    .pipe(gulp.dest('./dist/js'));
   });
 
   gulp.task('concat-angular', ['config'], function () {
     return gulp.src(['./src/angular/*.js'])
     .pipe(concat('bootstrap-font-picker-angular-directive.js'))
-    .pipe(gulp.dest('./dist/angular'));
+    .pipe(gulp.dest('./dist/js/angular'));
   });
 
-  gulp.task('build', ['html2js', 'concat', 'concat-angular']);
+  gulp.task('build', ['css-min', 'html2js', 'concat', 'concat-angular']);
 
   gulp.task('test', ['e2e:test']);
 
