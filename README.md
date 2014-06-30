@@ -12,3 +12,16 @@ In your [bower](http://bower.io/)-enabled project, run
 ```bash
 bower install --save git://github.com/Rise-Vision/bootstrap-form-components.git
 ```
+
+### Testing
+To run all tests, do
+
+```bash
+npm run test
+```
+
+To run E2E test built with [CasperJS](http://casperjs.org/), do
+
+```bash
+gulp e2e:test
+```
