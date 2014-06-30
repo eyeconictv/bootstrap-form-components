@@ -2,7 +2,7 @@
   'use strict';
 
   var gulp = require('gulp');
-  var spawn = require('child_process').spawn;
+  var spawn = require('spawn-cmd').spawn;
   var gutil = require('gulp-util');
   var connect = require('gulp-connect');
   var html2string = require('gulp-html2string');
