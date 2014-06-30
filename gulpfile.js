@@ -63,7 +63,7 @@
   gulp.task("css-min", ["css"], function () {
     return gulp.src("dist/css/all.css")
       .pipe(minifyCSS({keepBreaks:true}))
-      .pipe(rename('all.min.js'))
+      .pipe(rename('all.min.css'))
       .pipe(gulp.dest("dist/css"));
   });
 
@@ -114,7 +114,13 @@
     .pipe(gulp.dest('./dist/js/angular'));
   });
 
-  gulp.task('build', ['css-min', 'html2js', 'concat-fontpicker', 'concat-angular']);
+  gulp.task('concat-font-size-picker', ['config'], function () {
+    return gulp.src(['./src/js/config/config.js', './src/js/font-size-picker/font-size-picker.js'])
+      .pipe(concat('bootstrap-font-size-picker.js'))
+      .pipe(gulp.dest('./dist/js'));
+  });
+
+  gulp.task('build', ['css-min', 'html2js', 'concat-fontpicker', 'concat-angular', 'concat-font-size-picker']);
 
   gulp.task('test', ['e2e:test']);
 
