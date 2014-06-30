@@ -26,7 +26,7 @@ var CONFIG = {};
 
       // Initialize the font size picker component.
       $element.find(".bfh-fontsizes").bfhfontsizes({
-        "size": options["font-size"]
+        "fontsize": options["font-size"]
       }).selectpicker();
 
       $element.find(".bfh-selectbox").on("change.bfhselectbox", function(e) {
