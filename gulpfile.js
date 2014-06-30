@@ -68,7 +68,7 @@
   });
 
   gulp.task('e2e:test', ['build', 'e2e:server'], function () {
-      var tests = ['test/e2e/test1.js', 'test/e2e/font-size-picker-test.js'];
+      var tests = ['test/e2e/font-picker-test.js', 'test/e2e/font-size-picker-test.js'];
 
       var casperChild = spawn('casperjs', ['test'].concat(tests));
 
