@@ -6,10 +6,10 @@ TEMPLATES['font-picker-template.html'] = "<!-- Font Family -->\n" +
     "     styled individually. -->\n" +
     "<div class=\"bfh-selectbox\">\n" +
     "  <input class=\"font-family\" type=\"hidden\" value=\"\">\n" +
-    "  <a class=\"bfh-selectbox-toggle\" role=\"button\" data-toggle=\"bfh-selectbox\"\n" +
+    "  <a class=\"bfh-selectbox-toggle form-control\" role=\"button\" data-toggle=\"bfh-selectbox\"\n" +
     "    href=\"#\">\n" +
-    "    <span class=\"bfh-selectbox-option bfh-selectbox-large\" data-option=\"\"></span>\n" +
-    "    <b class=\"caret\"></b>\n" +
+    "    <span class=\"bfh-selectbox-option\"></span>\n" +
+    "    <span class=\"caret selectbox-caret\"></span>\n" +
     "  </a>\n" +
     "  <div class=\"bfh-selectbox-options\">\n" +
     "    <div role=\"listbox\">\n" +
@@ -26,7 +26,7 @@ TEMPLATES['font-picker-template.html'] = "<!-- Font Family -->\n" +
     "      <div class=\"modal-header\">\n" +
     "        <button class=\"close\" type=\"button\" aria-hidden=\"true\"\n" +
     "          data-dismiss=\"modal\">\n" +
-    "          <i class=\"glyphicons remove_2\"></i>\n" +
+    "          <i class=\"glyphicon glyphicon-remove\"></i>\n" +
     "        </button>\n" +
     "        <h2 class=\"modal-title\">Google Fonts</h2>\n" +
     "      </div>\n" +
@@ -35,8 +35,8 @@ TEMPLATES['font-picker-template.html'] = "<!-- Font Family -->\n" +
     "      </div>\n" +
     "      <div class=\"modal-footer\">\n" +
     "        <button type=\"button\" class=\"btn btn-primary\" data-dismiss=\"modal\">\n" +
-    "          <span data-i18n=\"cancel\"></span>\n" +
-    "          <i class=\"glyphicons white remove_2 icon-right\"></i>\n" +
+    "          <span data-i18n=\"cancel\">Cancel</span>\n" +
+    "          <i class=\"glyphicon glyphicon-remove icon-right\"></i>\n" +
     "        </button>\n" +
     "      </div>\n" +
     "    </div>\n" +
@@ -51,7 +51,7 @@ TEMPLATES['font-picker-template.html'] = "<!-- Font Family -->\n" +
     "      <div class=\"modal-header no-border\">\n" +
     "        <button class=\"close\" type=\"button\" aria-hidden=\"true\"\n" +
     "          data-dismiss=\"modal\">\n" +
-    "          <i class=\"glyphicons remove_2\"></i>\n" +
+    "          <i class=\"glyphicon glyphicon-remove\"></i>\n" +
     "        </button>\n" +
     "        <h2 class=\"modal-title\">Custom Font</h2>\n" +
     "      </div>\n" +
@@ -63,12 +63,12 @@ TEMPLATES['font-picker-template.html'] = "<!-- Font Family -->\n" +
     "      </div>\n" +
     "      <div class=\"modal-footer no-border\">\n" +
     "        <button type=\"button\" class=\"save-custom-font btn btn-primary\">\n" +
-    "          <span data-i18n=\"save\"></span>\n" +
-    "          <i class=\"glyphicons white ok_2 icon-right\"></i>\n" +
+    "          <span data-i18n=\"save\">Save</span>\n" +
+    "          <i class=\"glyphicon glyphicon-ok icon-right\"></i>\n" +
     "        </button>\n" +
     "        <button type=\"button\" class=\"btn btn-primary\" data-dismiss=\"modal\">\n" +
-    "          <span data-i18n=\"cancel\"></span>\n" +
-    "          <i class=\"glyphicons white remove_2 icon-right\"></i>\n" +
+    "          <span data-i18n=\"cancel\">Cancel</span>\n" +
+    "          <i class=\"glyphicon glyphicon-remove icon-right\"></i>\n" +
     "        </button>\n" +
     "      </div>\n" +
     "    </div>\n" +
