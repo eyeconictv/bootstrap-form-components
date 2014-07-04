@@ -19,17 +19,14 @@ var CONFIG = {};
      */
     function _init() {
       // Add the markup.
-      $element.append(
-          "<div class='bfh-selectbox'>" +
-          "<select class='form-control bfh-fontsizes'></select>" +
-          "</div>");
+      $element.append("<select class='form-control bfh-fontsizes'></select>");
 
       // Initialize the font size picker component.
       $element.find(".bfh-fontsizes").bfhfontsizes({
         "fontsize": options["font-size"]
       }).selectpicker();
 
-      $element.find(".bfh-selectbox").on("change.bfhselectbox", function(e) {
+      $element.find(".bfh-fontsizes").on("change.bfhselectbox", function(e) {
         $element.trigger("sizeChanged", getSize());
       });
     }
