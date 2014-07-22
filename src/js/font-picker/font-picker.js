@@ -15,7 +15,7 @@
       $selectBox = null,
       $family = null,
       $customFont = null,
-      $fontURL = null,
+      $customFontUrlField = null,
       $customFontError = null,
       currentFont = "",
       customFontURL = "";
@@ -32,8 +32,8 @@
 
       $selectBox = $element.find(".bfh-selectbox");
       $family = $element.find(".font-family");
-      $fontURL = $element.find(".font-url");
       $customFont = $element.find(".custom-font");
+      $customFontUrlField = $customFont.find(".url-field");
       $customFontError = $element.find(".custom-font-error");
 
       // Initialize font list.
@@ -43,8 +43,12 @@
       $element.find(".bfh-googlefontlist").bfhgooglefontlist();
 
       // Initialize custom font.
-      $element.find(".font-url").val(options["font-url"]);
-      customFontURL = $fontURL.val();
+      $customFontUrlField.urlField({
+        url: options["font-url"]
+      });
+      $customFontUrlField = $customFontUrlField.data("plugin_urlField");
+
+      customFontURL = options["font-url"];
 
       _loadFont();
       _bind();
@@ -98,7 +102,6 @@
           currentFont = $family.val();
           $customFontError.hide();
           $customFont.modal("show");
-          $fontURL.focus();
         }
         else {
           currentFont = $family.val();
@@ -113,10 +116,10 @@
       $element.find(".save-custom-font").on("click", function() {
         var fontFamily = "";
 
-        customFontURL = $fontURL.val();
+        customFontURL = $customFontUrlField.getUrl();
         fontFamily = _getCustomFontName();
 
-        if (RiseVision.Common.Validation.isValidURL($fontURL.get(0))) {
+        if ($customFontUrlField.validateUrl()) {
           utils.loadCustomFont(fontFamily, customFontURL, options.contentDocument);
           $customFont.modal("hide");
           $selectBox.trigger("customFontSelected", [fontFamily, customFontURL]);
@@ -192,7 +195,7 @@
     }
 
     function getFontURL() {
-      return $fontURL.val();
+      return $customFontUrlField.getUrl();
     }
 
     /*

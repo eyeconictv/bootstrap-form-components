@@ -18,10 +18,12 @@
     "templates"
   ],
   "dependencies": {
-    "jquery": "1.11.0",
-    "bootstrap": "3.1.1",
-    "rv-bootstrap-formhelpers": "git://github.com/Rise-Vision/BootstrapFormHelpers#2.3.2-rv",
+    "angular": "~1.2.18",
+    "rv-bootstrap": "git://github.com/Rise-Vision/bootstrap#3.1.1-rv",
     "bootstrap-select": "1.5.4",
-    "angular": "~1.2.18"
+    "jquery": "1.11.0",
+    "rv-bootstrap-formhelpers": "git://github.com/Rise-Vision/BootstrapFormHelpers#2.3.3-rv",
+    "widget-settings-ui-components": "git://github.com/Rise-Vision/widget-settings-ui-components"
+
   }
 }
