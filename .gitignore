@@ -4,3 +4,4 @@ src/templates
 src/css
 src/js/config/config.js
 *.log
+reports/

@@ -12,6 +12,8 @@
   var bump = require('gulp-bump');
   var sass = require('gulp-sass');
   var minifyCSS = require('gulp-minify-css');
+  var factory = require("widget-tester").gulpTaskFactory;
+  var runSequence = require("run-sequence");
   var httpServer;
 
   var sassFiles = [
@@ -39,15 +41,6 @@
     .pipe(gulp.dest('./'));
   });
 
-  gulp.task('e2e:server', ['build'], function() {
-    httpServer = connect.server({
-      root: './',
-      port: 8099,
-      livereload: false
-    });
-    return httpServer;
-  });
-
   gulp.task("sass", function () {
     return gulp.src(sassFiles)
       .pipe(sass())
@@ -67,20 +60,16 @@
       .pipe(gulp.dest("dist/css"));
   });
 
-  gulp.task('e2e:test', ['build', 'e2e:server'], function () {
-      var tests = ['test/e2e/font-picker-test.js', 'test/e2e/font-size-picker-test.js'];
+  gulp.task("e2e:server", ["build"], factory.testServer());
+  gulp.task("e2e:server-close", factory.testServerClose());
+  gulp.task("e2e:test:casper", factory.testE2E());
+  gulp.task("e2e:test:ng", factory.testE2EAngular({
+    testFiles: path.join(__dirname, "test/e2e/angular/font-picker-scenarios.js"),
+    baseUrl: "http://localhost:8099/test/e2e/angular/font-picker-scenarios.html"
+  }));
 
-      var casperChild = spawn('casperjs', ['test'].concat(tests));
-
-      casperChild.stdout.on('data', function (data) {
-          gutil.log('CasperJS:', data.toString().slice(0, -1)); // Remove \n
-      });
-
-      casperChild.on('close', function (code) {
-          var success = code === 0; // Will be 1 in the event of failure
-          connect.serverClose();
-          // Do something with success here
-      });
+  gulp.task('e2e:test', function (cb) {
+    runSequence("e2e:server", "e2e:test:casper", "e2e:server-close", cb);
   });
 
   gulp.task('html2js', function () {
@@ -121,6 +110,8 @@
   });
 
   gulp.task('build', ['css-min', 'html2js', 'concat-fontpicker', 'concat-angular', 'concat-font-size-picker']);
+
+  gulp.task("metrics", factory.metrics());
 
   gulp.task('test', ['e2e:test']);
 
