@@ -59,7 +59,6 @@ TEMPLATES['font-picker-template.html'] = "<!-- Font Family -->\n" +
     "        <div class=\"custom-font-error alert alert-danger\">\n" +
     "          Unable to validate the URL entered. Please un-check \"Validate URL\" to bypass validation.\n" +
     "        </div>\n" +
-    "        <!--<input class=\"font-url form-control\" type=\"url\" placeholder=\"Font URL\">-->\n" +
     "        <div class=\"url-field\"></div>\n" +
     "      </div>\n" +
     "      <div class=\"modal-footer no-border\">\n" +
