@@ -10,7 +10,10 @@
   function Plugin(element, options) {
     var $element = $(element);
 
-    options = $.extend({}, { "font-size": "14" }, options);
+    options = $.extend({}, {
+      "font-size":  "14",
+      "blank":      false,
+    }, options);
 
     /*
      *  Private Methods
@@ -21,7 +24,8 @@
 
       // Initialize the font size picker component.
       $element.find(".bfh-fontsizes").bfhfontsizes({
-        "fontsize": options["font-size"]
+        "fontsize": options["font-size"],
+        "blank":    options.blank,
       }).selectpicker();
 
       $element.find(".bfh-fontsizes").on("change.bfhselectbox", function(e) {

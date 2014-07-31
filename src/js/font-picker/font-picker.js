@@ -20,7 +20,15 @@
       currentFont = "",
       customFontURL = "";
 
-    options = $.extend({}, {"font": "Arial", "font-url": "", "load": null, "contentDocument": null}, options);
+    options = $.extend({}, {
+      "blank":            false,
+      "contentDocument":  null,
+      "font":             "Arial",
+      "font-url":         "",
+      "load":             null,
+      "showCustom":       true,
+      "showMore":         true,
+    }, options);
 
     /*
      *  Private Methods
