@@ -8,11 +8,12 @@
 
 <body ng-app="testapp" ng-controller="mainController">
 
-<div id="font-picker"
-  font-picker
-  font-picker-prefix="my-settings"
-  font-picker-default-font="Times New Roman">
-</div>
+<font-picker
+  default-font="Times New Roman"
+  show-custom="false"
+  ng-model="settings.additionalParams.fontName"
+  >
+</font-picker>
 
 <script type="text/javascript" src="../../components/jquery/dist/jquery.js"></script>
 <script type="text/javascript" src="../../components/bootstrap/dist/js/bootstrap.js"></script>
