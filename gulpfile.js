@@ -62,11 +62,7 @@
 
   gulp.task("e2e:server", ["build"], factory.testServer());
   gulp.task("e2e:server-close", factory.testServerClose());
-  gulp.task("e2e:test:casper", factory.testE2E());
-  gulp.task("e2e:test:ng", factory.testE2EAngular({
-    testFiles: path.join(__dirname, "test/e2e/angular/font-picker-scenarios.js"),
-    baseUrl: "http://localhost:8099/test/e2e/angular/font-picker-scenarios.html"
-  }));
+  gulp.task("test:e2e:casper", factory.testE2E());
 
   gulp.task('e2e:test', function (cb) {
     runSequence("e2e:server", "e2e:test:casper", "e2e:server-close", cb);
@@ -79,17 +75,16 @@
       .pipe(gulp.dest('src/templates/'));
   });
 
-  gulp.task("e2e:test-ng", ["webdriver_update", "e2e:server"], function () {
-    return gulp.src(["./test/e2e/test-ng.js"])
-      .pipe(protractor({
-          configFile: "./test/protractor.conf.js",
-          args: ["--baseUrl", "http://127.0.0.1:" + e2ePort + "/test/e2e/test-ng.html"]
-      }))
-      .on("error", function (e) { console.log(e); throw e; })
-      .on("end", function () {
-        connect.serverClose();
-      });
+  gulp.task("webdriver_update", factory.webdriveUpdate());
+
+  gulp.task("test:e2e:ng:core", factory.testE2EAngular({
+    testFiles: path.join(__dirname, "test", "e2e", "angular", "*scenarios.js")
+  }));
+  // Test the Angular version
+  gulp.task("test:e2e:ng", ["webdriver_update"], function (cb) {
+    return runSequence("e2e:server", "test:e2e:ng:core", "e2e:server-close", cb);
   });
+
 
   gulp.task('concat-fontpicker', ['config'], function () {
     return gulp.src(['./src/js/config/config.js', './src/templates/font-picker-template.js', './src/js/font-picker/font-loader.js', './src/js/font-picker/font-picker.js'])
@@ -113,7 +108,7 @@
 
   gulp.task("metrics", factory.metrics());
 
-  gulp.task('test', ['e2e:test']);
+  gulp.task('test', ['test:e2e:casper', 'test:e2e:ng']);
 
   gulp.task('default', ['build']);
 

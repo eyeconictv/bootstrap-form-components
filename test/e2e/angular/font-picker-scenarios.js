@@ -14,16 +14,14 @@
 
   browser.driver.manage().window().setSize(1024, 768);
 
+
   describe("font picker", function() {
-    
+    beforeEach(function (){
+      browser.get("/test/e2e/angular/font-picker-scenarios.html");
+    });
+
     //a scenario where two products are added to the shopping cart
     describe("font list", function() {
-
-      it("should load a list of files", function() {
-        expect(element.all(by.css(".bfh-selectbox-options ul li")).count()).to.eventually.equal(48);
-        var storageUsedInfoElem = element(by.css("div.storage-used-info"));
-        expect(storageUsedInfoElem.getText()).to.eventually.equal("Storage Used: 412.9 KB");
-      });
     });
   });
 })();
