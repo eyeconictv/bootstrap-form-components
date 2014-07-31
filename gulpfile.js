@@ -62,7 +62,11 @@
 
   gulp.task("e2e:server", ["build"], factory.testServer());
   gulp.task("e2e:server-close", factory.testServerClose());
-  gulp.task("test:e2e:casper", factory.testE2E());
+  gulp.task("test:e2e:casper:core", factory.testE2E());
+
+  gulp.task("test:e2e:casper", function (cb) {
+    runSequence("e2e:server", "test:e2e:casper:core", "e2e:server-close", cb);
+  });
 
   gulp.task('e2e:test', function (cb) {
     runSequence("e2e:server", "e2e:test:casper", "e2e:server-close", cb);
@@ -108,7 +112,9 @@
 
   gulp.task("metrics", factory.metrics());
 
-  gulp.task('test', ['test:e2e:casper', 'test:e2e:ng']);
+  gulp.task("test", function (cb) {
+    runSequence("test:e2e:casper", "test:e2e:ng", cb);
+  });
 
   gulp.task('default', ['build']);
 
