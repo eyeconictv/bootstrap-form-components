@@ -5,15 +5,14 @@
   <link rel="stylesheet" href="../../components/rv-bootstrap-formhelpers/dist/css/rv-bootstrap-formhelpers.css">
   <link rel="stylesheet" href="../../src/css/bootstrap-fontpicker.css" />
   <style>
-  #font-picker {
-    margin: 10px;
-    width: 250px;
-  }
-</style>
+    .font-picker {
+      margin: 10px;
+      width: 250px;
+    }
+  </style>
 </head>
 <body>
-  <div id="font-picker">
-  </div>
+  <div class="font-picker"></div>
 
   <script type="text/javascript" src="../../components/jquery/dist/jquery.js"></script>
   <script type="text/javascript" src="../../components/bootstrap/dist/js/bootstrap.js"></script>
@@ -25,11 +24,8 @@
   <script type="text/javascript" src="../../src/js/font-picker/font-picker.js"></script>
 
   <script type="text/javascript">
-    $('#font-picker').fontPicker({
+    $(".font-picker").fontPicker({
       font: "Times New Roman",
-      blank: false,
-      showCustom: true,
-      showMore: true,
     });
   </script>
 </body>
