@@ -280,6 +280,7 @@
       getFontStyle: getFontStyle,
       getFontURL: getFontURL,
       setFont: setFont,
+      setContentDoc: setContentDocument,
       addGoogleFont: addGoogleFont,
     };
   }
