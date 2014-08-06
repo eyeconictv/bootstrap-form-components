@@ -17,12 +17,12 @@
       $customFont = null,
       $customFontUrlField = null,
       $customFontError = null,
+      contentDocument = null,
       currentFont = "",
       customFontURL = "";
 
     options = $.extend({}, {
       "blank":            false,
-      "contentDocument":  null,
       "font":             "Arial",
       "font-url":         "",
       "load":             null,
@@ -34,7 +34,6 @@
      *  Private Methods
      */
     function _init() {
-
       // Get the HTML markup from the template.
       $element.append(TEMPLATES['font-picker-template.html']);
 
@@ -76,7 +75,7 @@
 
       // Custom font
       if (customFontURL !== "") {
-        utils.loadCustomFont(currentFont, customFontURL, options.contentDocument);
+        utils.loadCustomFont(currentFont, customFontURL, contentDocument);
         currentFont = CUSTOM_FONT_TEXT;
       }
       else if (currentFont !== null) {
@@ -128,7 +127,7 @@
         fontFamily = _getCustomFontName();
 
         if ($customFontUrlField.validateUrl()) {
-          utils.loadCustomFont(fontFamily, customFontURL, options.contentDocument);
+          utils.loadCustomFont(fontFamily, customFontURL, contentDocument);
           $customFont.modal("hide");
           $selectBox.trigger("customFontSelected", [fontFamily, customFontURL]);
         }
@@ -237,6 +236,15 @@
     }
 
     /*
+     * Set the content document.
+     *
+     * @param    object    contentDoc    Content document
+     */
+    function setContentDocument(contentDoc) {
+      contentDocument = contentDoc;
+    }
+
+    /*
      * Load the selected Google font and add it to the drop-down.
      *
      * @param   string    family        Font family
@@ -247,7 +255,7 @@
       var $options = $selectBox.find("[role=option]");
 
       // Load it.
-      utils.loadGoogleFont(family, options.contentDocument);
+      utils.loadGoogleFont(family, contentDocument);
 
       // Remove previous Google font, if applicable, and add the new one.
       //$options.find("li.google-font").remove();
@@ -257,7 +265,8 @@
 
       // Set Google font as default and sort.
       if (isSelected) {
-        $selectBox.find(".bfh-selectbox-option").data("option", family).html(family);
+        $selectBox.find(".bfh-selectbox-option").data("option", family)
+          .html(family);
         $selectBox.find(".font-family").val(family);
       }
 
