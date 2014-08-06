@@ -48,7 +48,7 @@ TEMPLATES['font-picker-template.html'] = "<!-- Font Family -->\n" +
     "  aria-hidden=\"true\" data-backdrop=\"false\">\n" +
     "  <div class=\"modal-dialog\">\n" +
     "    <div class=\"modal-content\">\n" +
-    "      <div class=\"modal-header no-border\">\n" +
+    "      <div class=\"modal-header\">\n" +
     "        <button class=\"close\" type=\"button\" aria-hidden=\"true\"\n" +
     "          data-dismiss=\"modal\">\n" +
     "          <i class=\"glyphicon glyphicon-remove\"></i>\n" +
@@ -61,7 +61,7 @@ TEMPLATES['font-picker-template.html'] = "<!-- Font Family -->\n" +
     "        </div>\n" +
     "        <div class=\"url-field\"></div>\n" +
     "      </div>\n" +
-    "      <div class=\"modal-footer no-border\">\n" +
+    "      <div class=\"modal-footer\">\n" +
     "        <button type=\"button\" class=\"save-custom-font btn btn-primary\">\n" +
     "          <span data-i18n=\"save\">Save</span>\n" +
     "          <i class=\"glyphicon glyphicon-ok icon-right\"></i>\n" +
