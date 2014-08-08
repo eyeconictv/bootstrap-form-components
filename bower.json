@@ -21,8 +21,8 @@
     "angular": "~1.2.18",
     "bootstrap-select": "1.5.4",
     "jquery": "1.11.0",
-    "rv-bootstrap-formhelpers": "git://github.com/Rise-Vision/BootstrapFormHelpers#2.3.3-rv",
-    "rv-style-guide": "git://github.com/Rise-Vision/style-guide",
-    "widget-settings-ui-components": "git://github.com/Rise-Vision/widget-settings-ui-components"
+    "rv-bootstrap-formhelpers": "https://github.com/Rise-Vision/BootstrapFormHelpers.git#2.3.3-rv",
+    "rv-style-guide": "https://github.com/Rise-Vision/style-guide.git",
+    "widget-settings-ui-components": "https://github.com/Rise-Vision/widget-settings-ui-components.git"
   }
 }
