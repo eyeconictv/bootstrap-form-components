@@ -36,8 +36,8 @@ angular.module('risevision.widget.common.fontpicker', [])
           };
         }
 
-        // $selectbox = $elm.find('div.bfh-selectbox');
-        // $selectbox.bfhselectbox($selectbox.data());
+        $selectbox = $elm.find('div.bfh-selectbox');
+        $selectbox.bfhselectbox($selectbox.data());
 
         //load i18n text translations after ensuring i18n has been initialized
         // i18nLoader.get().then(function () {$elm.i18n();});

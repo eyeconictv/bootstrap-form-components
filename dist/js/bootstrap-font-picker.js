@@ -75,8 +75,10 @@ TEMPLATES['font-picker-template.html'] = "<!-- Font Family -->\n" +
     "  </div>\n" +
     "</div>\n" +
     ""; 
-if(typeof RiseVision === 'undefined') {
-	var RiseVision = {Common: {}};
+if(!RiseVision || typeof RiseVision === 'undefined') {
+  var RiseVision = { Common: {} };
+} else if(typeof RiseVision.Common === 'undefined') {
+  RiseVision.Common = {};
 }
 
 ;(function (CONFIG, RiseVision) {
