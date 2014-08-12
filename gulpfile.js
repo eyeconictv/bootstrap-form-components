@@ -98,13 +98,13 @@
 
   gulp.task('concat-angular-fontpicker', ['config'], function () {
     return gulp.src(['./src/js/angular/dtv-font-picker.js'])
-    .pipe(concat('bootstrap-font-picker-angular.js'))
+    .pipe(concat('bootstrap-font-picker.js'))
     .pipe(gulp.dest('./dist/js/angular'));
   });
 
   gulp.task('concat-angular-font-size-picker', ['config'], function () {
     return gulp.src(['./src/js/angular/dtv-font-size-picker.js'])
-    .pipe(concat('bootstrap-font-size-picker-angular.js'))
+    .pipe(concat('bootstrap-font-size-picker.js'))
     .pipe(gulp.dest('./dist/js/angular'));
   });
 
