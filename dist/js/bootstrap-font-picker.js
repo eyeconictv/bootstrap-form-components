@@ -6,11 +6,11 @@ TEMPLATES['font-picker-template.html'] = "<!-- Font Family -->\n" +
     "     styled individually. -->\n" +
     "<div class=\"bfh-selectbox\">\n" +
     "  <input class=\"font-family\" type=\"hidden\" value=\"\">\n" +
-    "  <a class=\"bfh-selectbox-toggle form-control\" role=\"button\" data-toggle=\"bfh-selectbox\"\n" +
-    "    href=\"#\">\n" +
+    "  <button type=\"button\" class=\"btn btn-default btn-sm dropdown-toggle\"\n" +
+    "    data-toggle=\"bfh-selectbox\">\n" +
     "    <span class=\"bfh-selectbox-option\"></span>\n" +
     "    <span class=\"caret selectbox-caret\"></span>\n" +
-    "  </a>\n" +
+    "  </button>\n" +
     "  <div class=\"bfh-selectbox-options\">\n" +
     "    <div role=\"listbox\">\n" +
     "      <ul role=\"option\"></ul>\n" +
