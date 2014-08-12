@@ -20,7 +20,8 @@
      */
     function _init() {
       // Add the markup.
-      $element.append("<select class='form-control bfh-fontsizes'></select>");
+      $element.append("<select class='form-control bfh-fontsizes' " +
+        "data-style='btn-default btn-sm'></select>");
 
       // Initialize the font size picker component.
       $element.find(".bfh-fontsizes").bfhfontsizes({
