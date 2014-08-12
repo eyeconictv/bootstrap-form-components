@@ -1,7 +1,7 @@
 angular.module('risevision.widget.common.fontsizepicker', [])
   .directive('fontSizePicker', ['$log', function ($log) {
     return {
-      restrict: 'AE',
+      restrict: 'E',
       scope: false,
       replace: true,
       require: '?ngModel',
