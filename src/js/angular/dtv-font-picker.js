@@ -1,7 +1,7 @@
 angular.module('risevision.widget.common.fontpicker', [])
   .directive('fontPicker', ['$log', function ($log) {
     return {
-      restrict: 'AE',
+      restrict: 'E',
       scope: false,
       require: '?ngModel',
       template: '<div class="the-picker"></div>',

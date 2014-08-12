@@ -96,9 +96,15 @@
     .pipe(gulp.dest('./dist/js'));
   });
 
-  gulp.task('concat-angular', ['config'], function () {
-    return gulp.src(['./src/js/angular/*.js'])
-    .pipe(concat('bootstrap-font-picker-angular-directive.js'))
+  gulp.task('concat-angular-fontpicker', ['config'], function () {
+    return gulp.src(['./src/js/angular/dtv-font-picker.js'])
+    .pipe(concat('bootstrap-font-picker.js'))
+    .pipe(gulp.dest('./dist/js/angular'));
+  });
+
+  gulp.task('concat-angular-font-size-picker', ['config'], function () {
+    return gulp.src(['./src/js/angular/dtv-font-size-picker.js'])
+    .pipe(concat('bootstrap-font-size-picker.js'))
     .pipe(gulp.dest('./dist/js/angular'));
   });
 
@@ -108,7 +114,7 @@
       .pipe(gulp.dest('./dist/js'));
   });
 
-  gulp.task('build', ['css-min', 'html2js', 'concat-fontpicker', 'concat-angular', 'concat-font-size-picker']);
+  gulp.task('build', ['css-min', 'html2js', 'concat-fontpicker', 'concat-angular-fontpicker', 'concat-angular-font-size-picker', 'concat-font-size-picker']);
 
   gulp.task("metrics", factory.metrics());
 
