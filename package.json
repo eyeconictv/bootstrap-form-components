@@ -6,7 +6,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "NODE_ENV=test gulp test; gulp metrics;",
+    "test": "NODE_ENV=test gulp test",
     "build": "gulp build"
   },
   "repository": {
