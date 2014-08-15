@@ -2,18 +2,11 @@ angular.module('risevision.widget.common.fontpicker', [])
   .directive('fontPicker', ['$log', function ($log) {
     return {
       restrict: 'E',
-      scope: false,
-      require: '?ngModel',
+      scope: {
+        font: "="
+      },
       template: '<div class="the-picker"></div>',
-      link: function ($scope, elm, attrs, ngModel) {
-        var stripLast = function (str, strToStrip) {
-          var index = str.indexOf(strToStrip);
-          if(index >= 0) {
-            str = str.substring(0, str.lastIndexOf(strToStrip));
-          }
-          return str;
-        };
-
+      link: function ($scope, elm, attrs) {
         var $selectbox, picker;
         var $elm = $(elm).find('div.the-picker');
 
@@ -28,13 +21,12 @@ angular.module('risevision.widget.common.fontpicker', [])
 
           picker = $elm.data('plugin_fontPicker');
         }
-        if(ngModel) {
-          ngModel.$render = function () {
-            if(ngModel.$modelValue) {
-              picker.setFont(ngModel.$modelValue);
-            }
-          };
-        }
+
+        $scope.$watch("font", function(font) {
+          if (font) {
+            picker.setFont(font.family);
+          }
+        });
 
         $selectbox = $elm.find('div.bfh-selectbox');
         $selectbox.bfhselectbox($selectbox.data());
@@ -42,11 +34,31 @@ angular.module('risevision.widget.common.fontpicker', [])
         //load i18n text translations after ensuring i18n has been initialized
         // i18nLoader.get().then(function () {$elm.i18n();});
 
-        $scope.$on('collectAdditionalParams', function () {
-          $log.debug('Collecting params from', attrs.id);
-          if(ngModel) {
-            ngModel.$setViewValue(picker.getFont());
-          }
+        $elm.on("standardFontSelected", function(event, font, family) {
+          $scope.$apply(function() {
+            $scope.font.type = "standard";
+            $scope.font.font = font;
+            $scope.font.family = family;
+            delete $scope.font.url;
+          });
+        });
+
+        $elm.on("customFontSelected", function(event, family, url) {
+          $scope.$apply(function() {
+            $scope.font.type = "custom";
+            $scope.font.font = family;
+            $scope.font.family = family;
+            $scope.font.url = url;
+          });
+        });
+
+        $elm.on("googleFontSelected", function(event, family) {
+          $scope.$apply(function() {
+            $scope.font.type = "google";
+            $scope.font.font = family;
+            $scope.font.family = family;
+            delete $scope.font.url;
+          });
         });
       }
     };
