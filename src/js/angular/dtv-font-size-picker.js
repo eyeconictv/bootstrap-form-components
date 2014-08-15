@@ -6,14 +6,15 @@ angular.module('risevision.widget.common.fontsizepicker', [])
       replace: true,
       require: '?ngModel',
       link: function ($scope, elm, attrs, ngModel) {
+        var $elm = $(elm);
 
         //initialize only if not yet initialized
-        if (!elm.data('plugin_fontSizePicker')) {
-          elm.fontSizePicker({
+        if (!$elm.data('plugin_fontSizePicker')) {
+          $elm.fontSizePicker({
             "font-size": "18"
           });
 
-          var picker = elm.data('plugin_fontSizePicker');
+          var picker = $elm.data('plugin_fontSizePicker');
         }
 
         if (ngModel) {
