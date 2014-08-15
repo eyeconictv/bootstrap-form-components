@@ -25,11 +25,10 @@ angular.module('risevision.widget.common.fontsizepicker', [])
           };
         }
 
-        $scope.$on('collectAdditionalParams', function () {
-          $log.debug('Collecting params from', attrs.id);
-          if (ngModel) {
-            ngModel.$setViewValue(picker.getFontSize());
-          }
+        $elm.on("sizeChanged", function(event, size) {
+          $scope.$apply(function() {
+            ngModel.$setViewValue(size);
+          });
         });
       }
     };
