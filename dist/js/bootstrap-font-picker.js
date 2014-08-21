@@ -6,7 +6,7 @@ TEMPLATES['font-picker-template.html'] = "<!-- Font Family -->\n" +
     "     styled individually. -->\n" +
     "<div class=\"bfh-selectbox\">\n" +
     "  <input class=\"font-family\" type=\"hidden\" value=\"\">\n" +
-    "  <button type=\"button\" class=\"btn btn-default btn-sm dropdown-toggle\"\n" +
+    "  <button type=\"button\" class=\"btn btn-default btn-sm dropdown-toggle font-select-btn\"\n" +
     "    data-toggle=\"bfh-selectbox\">\n" +
     "    <span class=\"bfh-selectbox-option\"></span>\n" +
     "    <span class=\"caret selectbox-caret\"></span>\n" +
