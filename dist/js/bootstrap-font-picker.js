@@ -34,9 +34,8 @@ TEMPLATES['font-picker-template.html'] = "<!-- Font Family -->\n" +
     "        <div class=\"list-group bfh-googlefontlist\"></div>\n" +
     "      </div>\n" +
     "      <div class=\"modal-footer\">\n" +
-    "        <button type=\"button\" class=\"btn btn-primary\" data-dismiss=\"modal\">\n" +
-    "          <span data-i18n=\"cancel\">Cancel</span>\n" +
-    "          <i class=\"glyphicon glyphicon-remove icon-right\"></i>\n" +
+    "        <button type=\"button\" class=\"btn btn-primary btn-fixed-width\" data-dismiss=\"modal\">\n" +
+    "          <span data-i18n=\"cancel\">Cancel</span> <i class=\"glyphicons white remove_2 icon-right\"></i>\n" +
     "        </button>\n" +
     "      </div>\n" +
     "    </div>\n" +
@@ -62,13 +61,11 @@ TEMPLATES['font-picker-template.html'] = "<!-- Font Family -->\n" +
     "        <div class=\"url-field\"></div>\n" +
     "      </div>\n" +
     "      <div class=\"modal-footer\">\n" +
-    "        <button type=\"button\" class=\"save-custom-font btn btn-primary\">\n" +
-    "          <span data-i18n=\"save\">Save</span>\n" +
-    "          <i class=\"glyphicon glyphicon-ok icon-right\"></i>\n" +
+    "        <button type=\"button\" class=\"save-custom-font btn btn-success btn-fixed-width\" >\n" +
+    "          <span data-i18n=\"select\">Select</span> <i class=\"glyphicons white ok_2 icon-right\"></i>\n" +
     "        </button>\n" +
-    "        <button type=\"button\" class=\"btn btn-primary\" data-dismiss=\"modal\">\n" +
-    "          <span data-i18n=\"cancel\">Cancel</span>\n" +
-    "          <i class=\"glyphicon glyphicon-remove icon-right\"></i>\n" +
+    "        <button type=\"button\" class=\"btn btn-primary btn-fixed-width\" data-dismiss=\"modal\">\n" +
+    "          <span data-i18n=\"cancel\">Cancel</span> <i class=\"glyphicons white remove_2 icon-right\"></i>\n" +
     "        </button>\n" +
     "      </div>\n" +
     "    </div>\n" +
