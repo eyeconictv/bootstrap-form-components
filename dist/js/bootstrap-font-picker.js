@@ -26,7 +26,7 @@ TEMPLATES['font-picker-template.html'] = "<!-- Font Family -->\n" +
     "      <div class=\"modal-header\">\n" +
     "        <button class=\"close\" type=\"button\" aria-hidden=\"true\"\n" +
     "          data-dismiss=\"modal\">\n" +
-    "          <i class=\"glyphicon glyphicon-remove\"></i>\n" +
+    "          <span>&times;</span><span class=\"sr-only\">Close</span>\n" +
     "        </button>\n" +
     "        <h2 class=\"modal-title\">Google Fonts</h2>\n" +
     "      </div>\n" +
@@ -51,7 +51,7 @@ TEMPLATES['font-picker-template.html'] = "<!-- Font Family -->\n" +
     "      <div class=\"modal-header\">\n" +
     "        <button class=\"close\" type=\"button\" aria-hidden=\"true\"\n" +
     "          data-dismiss=\"modal\">\n" +
-    "          <i class=\"glyphicon glyphicon-remove\"></i>\n" +
+    "          <span>&times;</span><span class=\"sr-only\">Close</span>\n" +
     "        </button>\n" +
     "        <h2 class=\"modal-title\">Custom Font</h2>\n" +
     "      </div>\n" +
