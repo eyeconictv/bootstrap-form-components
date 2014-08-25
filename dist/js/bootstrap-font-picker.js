@@ -35,7 +35,7 @@ TEMPLATES['font-picker-template.html'] = "<!-- Font Family -->\n" +
     "      </div>\n" +
     "      <div class=\"modal-footer\">\n" +
     "        <button type=\"button\" class=\"btn btn-primary btn-fixed-width\" data-dismiss=\"modal\">\n" +
-    "          <span data-i18n=\"cancel\">Cancel</span> <i class=\"glyphicons white remove_2 icon-right\"></i>\n" +
+    "          <span data-i18n=\"cancel\">Cancel</span> <i class=\"fa fa-times fa-white icon-right\"></i>\n" +
     "        </button>\n" +
     "      </div>\n" +
     "    </div>\n" +
@@ -62,10 +62,10 @@ TEMPLATES['font-picker-template.html'] = "<!-- Font Family -->\n" +
     "      </div>\n" +
     "      <div class=\"modal-footer\">\n" +
     "        <button type=\"button\" class=\"save-custom-font btn btn-success btn-fixed-width\" >\n" +
-    "          <span data-i18n=\"select\">Select</span> <i class=\"glyphicons white ok_2 icon-right\"></i>\n" +
+    "          <span data-i18n=\"select\">Select</span> <i class=\"fa fa-check fa-white icon-right\"></i>\n" +
     "        </button>\n" +
     "        <button type=\"button\" class=\"btn btn-primary btn-fixed-width\" data-dismiss=\"modal\">\n" +
-    "          <span data-i18n=\"cancel\">Cancel</span> <i class=\"glyphicons white remove_2 icon-right\"></i>\n" +
+    "          <span data-i18n=\"cancel\">Cancel</span> <i class=\"fa fa-times fa-white icon-right\"></i>\n" +
     "        </button>\n" +
     "      </div>\n" +
     "    </div>\n" +
