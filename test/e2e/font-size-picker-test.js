@@ -1,5 +1,7 @@
 casper.test.begin('font size picker: size list', function (test) {
-  casper.start('http://localhost:8099/test/e2e/font-size-picker-test.html', function () {
+  var e2ePort = process.env.E2E_PORT || 8099;
+
+  casper.start('http://localhost:'+e2ePort+'/test/e2e/font-size-picker-test.html', function () {
     test.assertTitle('Font Size Picker - Test Page', "Page title is the one expected");
     test.assertSelectorHasText('.filter-option', '18', "Default size is 18");
   });
