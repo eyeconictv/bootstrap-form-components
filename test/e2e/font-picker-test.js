@@ -1,6 +1,5 @@
 casper.test.begin('font picker: font list', function (test) {
-    var e2ePort = process.env.E2E_PORT || 8099;
-    casper.start('http://localhost:'+e2ePort+'/test/e2e/font-picker-test.html', function () {
+    casper.start('http://localhost:8099/test/e2e/font-picker-test.html', function () {
         test.assertTitle('Font Picker - Test Page');
         //should Display "Times New Roman" by default
         test.assertSelectorHasText('.bfh-selectbox-option', 'Times New Roman');
