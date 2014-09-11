@@ -119,7 +119,7 @@
   gulp.task("metrics", factory.metrics());
 
   gulp.task("test", function (cb) {
-    runSequence("test:e2e:casper", "test:e2e:ng", cb);
+    runSequence("test:e2e:casper", "test:e2e:ng", "metrics", cb);
   });
 
   gulp.task('default', ['build']);
