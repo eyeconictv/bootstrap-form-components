@@ -236,6 +236,13 @@
     }
 
     /*
+     * Reset font picker to default font.
+     */
+    function reset() {
+      setFont("Arial, 'Helvetica Neue', Helvetica, sans-serif");
+    }
+
+    /*
      * Set the content document.
      *
      * @param    object    contentDoc    Content document
@@ -276,12 +283,13 @@
     _init();
 
     return {
-      getFont: getFont,
-      getFontStyle: getFontStyle,
-      getFontURL: getFontURL,
-      setFont: setFont,
+      getFont:       getFont,
+      getFontStyle:  getFontStyle,
+      getFontURL:    getFontURL,
+      setFont:       setFont,
+      reset:         reset,
       setContentDoc: setContentDocument,
-      addGoogleFont: addGoogleFont,
+      addGoogleFont: addGoogleFont
     };
   }
 
