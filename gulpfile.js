@@ -91,7 +91,7 @@
 
 
   gulp.task('concat-fontpicker', ['config'], function () {
-    return gulp.src(['./src/js/config/config.js', './src/templates/font-picker-template.js', './components/common/scripts/rise/common.js', './src/js/font-picker/font-picker.js'])
+    return gulp.src(['./src/js/config/config.js', './src/templates/font-picker-template.js', './components/widget-common/dist/common.js', './src/js/font-picker/font-picker.js'])
     .pipe(concat('bootstrap-font-picker.js'))
     .pipe(gulp.dest('./dist/js'));
   });
