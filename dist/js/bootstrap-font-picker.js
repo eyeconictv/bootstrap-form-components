@@ -166,13 +166,33 @@ RiseVision.Common.Validation = (function() {
 })();
 
 RiseVision.Common.Utilities = (function() {
+
+  function getFontCssStyle(className, fontObj) {
+    var family = "font-family:" + fontObj.font.family + "; ";
+    var color = "color: " + fontObj.color + "; ";
+    var size = "font-size: " + fontObj.size + "px; ";
+    var weight = "font-weight: " + (fontObj.bold ? "bold" : "normal") + "; ";
+    var italic = "font-style: " + (fontObj.italic ? "italic" : "normal") + "; ";
+    var underline = "text-decoration: " + (fontObj.underline ? "underline" : "none") + "; ";
+
+    return "." + className + " {" + family + color + size + weight + italic + underline + "}";
+  }
+
+  function addCSSRules(rules) {
+    var style = document.createElement("style");
+
+    for (var i = 0, length = rules.length; i < length; i++) {
+      style.appendChild(document.createTextNode(rules[i]));
+    }
+
+    document.head.appendChild(style);
+  }
+
 	function loadCustomFont(family, url, contentDocument) {
 		var sheet = null;
 		var rule = "font-family: " + family + "; " + "src: url('" + url + "');";
 
-		if (contentDocument == null) {
-			contentDocument = document;
-		}
+    contentDocument = contentDocument || document;
 
 		sheet = contentDocument.styleSheets[0];
 
@@ -182,11 +202,9 @@ RiseVision.Common.Utilities = (function() {
 	}
 
 	function loadGoogleFont(family, contentDocument) {
-		if (contentDocument == null) {
-			contentDocument = document;
-		}
+    var stylesheet = document.createElement("link");
 
-		var stylesheet = document.createElement("link");
+		contentDocument = contentDocument || document;
 
 		stylesheet.setAttribute("rel", "stylesheet");
 		stylesheet.setAttribute("type", "text/css");
@@ -198,10 +216,12 @@ RiseVision.Common.Utilities = (function() {
 		}
 	}
 
-	return {
-		loadCustomFont: loadCustomFont,
-		loadGoogleFont: loadGoogleFont,
-	};
+  return {
+    getFontCssStyle:  getFontCssStyle,
+    addCSSRules:      addCSSRules,
+    loadCustomFont:   loadCustomFont,
+    loadGoogleFont:   loadGoogleFont
+  };
 })();
 /*  Copyright © 2014 Rise Vision Incorporated.
  *  Use of this software is governed by the GPLv3 license
