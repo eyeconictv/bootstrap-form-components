@@ -280,6 +280,14 @@
       _sortFontList();
     }
 
+    function addCustomFont(fontFamily, fontUrl) {
+      // Load it
+      utils.loadCustomFont(fontFamily, fontUrl, contentDocument);
+
+      customFontURL = fontUrl;
+      currentFont = CUSTOM_FONT_TEXT;
+    }
+
     _init();
 
     return {
@@ -289,7 +297,8 @@
       setFont:       setFont,
       reset:         reset,
       setContentDoc: setContentDocument,
-      addGoogleFont: addGoogleFont
+      addGoogleFont: addGoogleFont,
+      addCustomFont: addCustomFont
     };
   }
 
