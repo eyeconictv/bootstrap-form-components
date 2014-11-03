@@ -213,22 +213,26 @@
     function setFont(family) {
       var font = family.split(",");
       var $elem = null;
+      var found = false;
 
-      // Remove quotes so that a match can be found.
-      if (font.length > 0) {
-        font = font[0].replace(/'/g, "");
-      }
+      $.each(font, function(index, value) {
+        // Remove quotes so that a match can be found.
+        value = value.replace(/'/g, "").trim();
+        $elem = $selectBox.find("a[data-option='" + value + "']");
 
-      $elem = $selectBox.find("a[data-option='" + font + "']");
+        // This is a standard or Google font.
+        if ($elem.length === 1) {
+          $selectBox.find(".bfh-selectbox-option").text($elem.text())
+            .data("option", value);
+          $family.val(value);
 
-      // This is a standard or Google font.
-      if ($elem.length === 1) {
-        $selectBox.find(".bfh-selectbox-option").text($elem.text())
-          .data("option", font);
-        $family.val(font);
-      }
+          found = true;
+          return false;
+        }
+      });
+
       // This must be a custom font.
-      else {
+      if (!found) {
         $selectBox.find(".bfh-selectbox-option").text(CUSTOM_FONT_TEXT)
           .data("option", CUSTOM_FONT_TEXT);
         $family.val(CUSTOM_FONT_TEXT);
