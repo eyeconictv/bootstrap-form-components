@@ -1,25 +1,25 @@
-angular.module('risevision.widget.common.fontpicker', [])
-  .directive('fontPicker', ['$log', function ($log) {
+angular.module("risevision.widget.common.fontpicker", [])
+  .directive("fontPicker", ["$log", function ($log) {
     return {
-      restrict: 'E',
+      restrict: "E",
       scope: {
         font: "="
       },
-      template: '<div class="the-picker"></div>',
+      template: "<div class='font-picker'></div>",
       link: function ($scope, elm, attrs) {
         var $selectbox, picker;
-        var $elm = $(elm).find('div.the-picker');
+        var $elm = $(elm).find("div.font-picker");
 
         //initialize only if not yet initialized
-        if(!$elm.data('plugin_fontPicker')) {
+        if(!$elm.data("plugin_fontPicker")) {
           $elm.fontPicker({
-            font : attrs.defaultFont || 'Verdana',
+            font : attrs.defaultFont || "Verdana",
             blank: false,
             showCustom: true,
             showMore: true
           });
 
-          picker = $elm.data('plugin_fontPicker');
+          picker = $elm.data("plugin_fontPicker");
         }
 
         $scope.$watch("font", function(font) {
@@ -32,7 +32,7 @@ angular.module('risevision.widget.common.fontpicker', [])
           }
         });
 
-        $selectbox = $elm.find('div.bfh-selectbox');
+        $selectbox = $elm.find("div.bfh-selectbox");
         $selectbox.bfhselectbox($selectbox.data());
 
         //load i18n text translations after ensuring i18n has been initialized
