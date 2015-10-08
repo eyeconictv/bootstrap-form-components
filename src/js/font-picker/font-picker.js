@@ -36,7 +36,6 @@
     function _init() {
       // Get the HTML markup from the template.
       $element.append(TEMPLATES['font-picker-template.html']);
-
       $selectBox = $element.find(".bfh-selectbox");
       $family = $element.find(".font-family");
       $customFont = $element.find(".custom-font");
@@ -184,6 +183,12 @@
         .append(moreFonts);
     }
 
+    /* Select a particular font in the drop-down. */
+    function _selectFont(family) {
+      $selectBox.find(".bfh-selectbox-option").data("option", family).html(family);
+      $selectBox.find(".font-family").val(family);
+    }
+
     /*
      *  Public Methods
      */
@@ -268,17 +273,15 @@
       // Load it.
       utils.loadGoogleFont(family, contentDocument);
 
-      // Remove previous Google font, if applicable, and add the new one.
-      //$options.find("li.google-font").remove();
-      $options.prepend("<li class='google-font'><a tabindex='-1' href='#' " +
-        "style='font-family: Google' data-option='" + family + "'>" + family +
-        "</a></li>");
+      // Check that the font has not already been added.
+      if ($options.find("li.google-font a[data-option='" + family + "']").length === 0) {
+        $options.prepend("<li class='google-font'><a tabindex='-1' href='#' " +
+          "style='font-family: Google' data-option='" + family + "'>" + family +
+          "</a></li>");
+      }
 
-      // Set Google font as default and sort.
       if (isSelected) {
-        $selectBox.find(".bfh-selectbox-option").data("option", family)
-          .html(family);
-        $selectBox.find(".font-family").val(family);
+        _selectFont(family);
       }
 
       _sortFontList();
@@ -295,14 +298,14 @@
     _init();
 
     return {
-      getFont:       getFont,
-      getFontStyle:  getFontStyle,
-      getFontURL:    getFontURL,
-      setFont:       setFont,
-      reset:         reset,
-      setContentDoc: setContentDocument,
-      addGoogleFont: addGoogleFont,
-      addCustomFont: addCustomFont
+      "getFont":       getFont,
+      "getFontStyle":  getFontStyle,
+      "getFontURL":    getFontURL,
+      "setFont":       setFont,
+      "reset":         reset,
+      "setContentDoc": setContentDocument,
+      "addGoogleFont": addGoogleFont,
+      "addCustomFont": addCustomFont
     };
   }
 
