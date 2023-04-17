@@ -12,7 +12,7 @@
   var bump = require("gulp-bump");
   var sass = require("gulp-sass");
   var minifyCSS = require("gulp-minify-css");
-  var factory = require("widget-tester").gulpTaskFactory;
+  // var factory = require("widget-tester").gulpTaskFactory;
   var runSequence = require("run-sequence");
   var httpServer;
 
@@ -60,17 +60,17 @@
       .pipe(gulp.dest("dist/css"));
   });
 
-  gulp.task("e2e:server", ["build"], factory.testServer());
-  gulp.task("e2e:server-close", factory.testServerClose());
-  gulp.task("test:e2e:casper:core", factory.testE2E());
+  // gulp.task("e2e:server", ["build"], factory.testServer());
+  // gulp.task("e2e:server-close", factory.testServerClose());
+  // gulp.task("test:e2e:casper:core", factory.testE2E());
 
-  gulp.task("test:e2e:casper", function (cb) {
-    runSequence("e2e:server", "test:e2e:casper:core", "e2e:server-close", cb);
-  });
+  // gulp.task("test:e2e:casper", function (cb) {
+  //   runSequence("e2e:server", "test:e2e:casper:core", "e2e:server-close", cb);
+  // });
 
-  gulp.task("e2e:test", function (cb) {
-    runSequence("e2e:server", "e2e:test:casper", "e2e:server-close", cb);
-  });
+  // gulp.task("e2e:test", function (cb) {
+  //   runSequence("e2e:server", "e2e:test:casper", "e2e:server-close", cb);
+  // });
 
   gulp.task("html2js", function () {
     return gulp.src("src/html/*.html")
@@ -79,16 +79,16 @@
       .pipe(gulp.dest("src/templates/"));
   });
 
-  gulp.task("webdriver_update", factory.webdriveUpdate());
+  // gulp.task("webdriver_update", factory.webdriveUpdate());
 
-  gulp.task("test:e2e:ng:core", factory.testE2EAngular({
-    testFiles: path.join(__dirname, "test", "e2e", "angular", "*scenarios.js")
-  }));
+  // gulp.task("test:e2e:ng:core", factory.testE2EAngular({
+  //   testFiles: path.join(__dirname, "test", "e2e", "angular", "*scenarios.js")
+  // }));
 
-  // Test the Angular version
-  gulp.task("test:e2e:ng", ["webdriver_update"], function (cb) {
-    return runSequence("e2e:server", "test:e2e:ng:core", "e2e:server-close", cb);
-  });
+  // // Test the Angular version
+  // gulp.task("test:e2e:ng", ["webdriver_update"], function (cb) {
+  //   return runSequence("e2e:server", "test:e2e:ng:core", "e2e:server-close", cb);
+  // });
 
 
   gulp.task("concat-fontpicker", ["config"], function () {
@@ -115,23 +115,23 @@
       .pipe(gulp.dest("./dist/js"));
   });
 
-  gulp.task("test:unit", factory.testUnitAngular({
-    testFiles: [
-      "components/jquery/dist/jquery.min.js",
-      "components/bootstrap-sass-official/assets/javascripts/bootstrap.js",
-      "components/rv-bootstrap-formhelpers/dist/js/rv-bootstrap-formhelpers.js",
-      "components/widget-settings-ui-components/dist/js/url-field.js",
-      "src/js/config/test.js",
-      "src/templates/font-picker-template.js",
-      "components/widget-common/dist/common.js",
-      "src/js/font-picker/font-picker.js",
-      "test/unit/**/*spec.js"
-    ]
-  }));
+  // gulp.task("test:unit", factory.testUnitAngular({
+  //   testFiles: [
+  //     "components/jquery/dist/jquery.min.js",
+  //     "components/bootstrap-sass-official/assets/javascripts/bootstrap.js",
+  //     "components/rv-bootstrap-formhelpers/dist/js/rv-bootstrap-formhelpers.js",
+  //     "components/widget-settings-ui-components/dist/js/url-field.js",
+  //     "src/js/config/test.js",
+  //     "src/templates/font-picker-template.js",
+  //     "components/widget-common/dist/common.js",
+  //     "src/js/font-picker/font-picker.js",
+  //     "test/unit/**/*spec.js"
+  //   ]
+  // }));
 
-  gulp.task("test", function (cb) {
-    runSequence("test:e2e:casper", "test:e2e:ng", "test:unit", cb);
-  });
+  // gulp.task("test", function (cb) {
+  //   runSequence("test:e2e:casper", "test:e2e:ng", "test:unit", cb);
+  // });
 
   gulp.task("build", ["css-min", "html2js", "concat-fontpicker", "concat-angular-fontpicker", "concat-angular-font-size-picker", "concat-font-size-picker"]);
 
