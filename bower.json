@@ -29,7 +29,7 @@
   "resolutions": {
     "angular": "~1.3.0",
     "jquery": "2.1.4",
-    "rv-bootstrap-formhelpers": "3.3.5",
+    "rv-bootstrap-formhelpers": "3.3.6",
     "angular-bootstrap": "^0.13.0"
   }
 }
